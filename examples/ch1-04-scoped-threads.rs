@@ -3,6 +3,8 @@ use std::thread;
 fn main() {
     let numbers = vec![1, 2, 3];
 
+
+    // 使用scope
     thread::scope(|s| {
         s.spawn(|| {
             println!("length: {}", numbers.len());
@@ -12,5 +14,6 @@ fn main() {
                 println!("{n}");
             }
         });
+        
     });
 }

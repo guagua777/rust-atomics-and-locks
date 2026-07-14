@@ -16,9 +16,11 @@ fn main() {
                     if let Some(item) = q.pop_front() {
                         break item;
                     } else {
+                        // 存在虚假唤醒的情况，此时并没有获取到锁，需要使用循环判断
                         q = not_empty.wait(q).unwrap();
                     }
                 };
+                // 要在使用完队列后释放锁
                 drop(q);
                 dbg!(item);
             }
