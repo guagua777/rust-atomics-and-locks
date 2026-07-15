@@ -30,5 +30,6 @@ fn main() {
 }
 
 fn some_work() {
+    // println!("some work");
     thread::sleep(Duration::from_millis(100));
 }
